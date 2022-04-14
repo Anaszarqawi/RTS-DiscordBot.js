@@ -17,10 +17,10 @@ bot.on('message', message => {
             message.channel.sendTyping();
             message.channel.send('hey')
             break;
-        case 'clear':
-            if (!args[1]) return message.reply('Error plz define second arg')
-            message.channel.bulkDelete(args[1])
-            break;
+        // case 'clear':
+        //     if (!args[1]) return message.reply('Error plz define second arg')
+        //     message.channel.bulkDelete(args[1])
+        //     break;
     }
 })
 
