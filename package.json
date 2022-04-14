@@ -1,0 +1,14 @@
+{
+  "name": "anasbot",
+  "version": "1.0.0",
+  "description": "Discord bot for manage sessions and meetings",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "anaszarqawi",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
+}
