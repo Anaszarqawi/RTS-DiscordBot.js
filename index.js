@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const dotenv = require('dotenv').config();
+const config = require('./config.json');
 const bot = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
 const prefix = '$';
@@ -39,4 +40,4 @@ bot.on('message', message => {
 })
 
 // bot.login(process.env.TOKEN)
-bot.login(process.env.DISCORD_TOKEN)
+bot.login(config.DISCORD_TOKEN)
