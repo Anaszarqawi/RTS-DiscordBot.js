@@ -27,8 +27,7 @@ bot.on('message', message => {
                 { name: 'Exercises', value: 'https://bit.ly/RTS_Exercises'},
                 { name: 'Sessions', value: 'https://bit.ly/RTS_Sessions'},
             )
-            // .setThumbnail('https://pps.whatsapp.net/v/t61.24694-24/264326178_320428213240763_6903990224413436051_n.jpg?ccb=11-4&oh=cf95b8149885330eafb77859f186e14e&oe=6266C31B')
-            .setImage('https://pps.whatsapp.net/v/t61.24694-24/264326178_320428213240763_6903990224413436051_n.jpg?ccb=11-4&oh=cf95b8149885330eafb77859f186e14e&oe=6266C31B')
+            .setImage('https://github.com/Anaszarqawi/anasBot.js/blob/main/assets/intro-01.jpg?raw=true')
             .setFooter("RTS TEAM")
         message.channel.send({ embeds: [exampleEmbed] });
         return
@@ -36,27 +35,6 @@ bot.on('message', message => {
 
     switch (args[0]) {
         case "link":
-            message.channel.sendTyping();
-            // message.channel.send('https://bit.ly/RTSworksapace')
-
-            // inside a command, event listener, etc.
-            const exampleEmbed = new Discord.MessageEmbed()
-                .setColor('#0099ff')
-                .setTitle('RTS WORKSPACE')
-                .setURL('https://bit.ly/RTSworksapace')
-                .setDescription('Here you will find all the Summaries, Videos, Answers to Exams and any materials that will benefit you in the field of CS.')
-                // .addFields(
-                //     { name: 'Regular field title', value: 'Some value here' },
-                //     { name: 'Inline field title', value: 'Some value here', inline: true },
-                //     { name: 'Inline field title', value: 'Some value here', inline: true },
-                // )
-                .setThumbnail('https://yt3.ggpht.com/_2DDrBADr1Rs9Xiyq-cvnvHarsqVwHkLisVaq076pNan6o3v5EBdTsbtaUmPQgxudBtklwHoMw=s88-c-k-c0x00ffffff-no-rj')
-            message.channel.send({ embeds: [exampleEmbed] });
-            break;
-        // case 'clear':
-        //     if (!args[1]) return message.reply('Error plz define second arg')
-        //     message.channel.bulkDelete(args[1])
-        //     break;
     }
 })
 
