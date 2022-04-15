@@ -1,9 +1,8 @@
 const Discord = require('discord.js');
-const dotenv = require('dotenv').config();
 const config = require('./config.json');
 const bot = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
-const prefix = '$';
+const prefix = config.prefix;
 
 bot.on('ready', () => {
     console.log("This bot is online!");
