@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 module.exports = {
     name : 'mute',
     description : "mute all people by mentions or not",
-    excute(message, args) {
+    execute(message, args) {
         let canMuteUsers = message.channel.permissionsFor(message.member).has("MUTE_MEMBERS"); 
 
         if(message.member.voice.channel && canMuteUsers) {
