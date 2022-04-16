@@ -24,10 +24,21 @@ bot.on('ready', () => {
 bot.on('message', message => {
 
     let args = message.content.substring(prefix.length).split(" ")
-    
+    // without prefix
     if (message.content === "rts") {
         bot.commands.get('rts').execute(message, args)
     }
+
+    //with prefix
+
+    switch(args[0])
+    {
+        case 'mute':
+            bot.commands.get('mute').execute(message, args);
+
+    }
+
+    
 
 })
 
