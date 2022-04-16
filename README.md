@@ -17,3 +17,6 @@ Un-mute all users in the voice channel
 
 ```$unmute @Role```
 Un-mute all users with a specific role in the voice channel
+
+```$show```
+Returns the number of users in a voice channel
