@@ -35,10 +35,15 @@ bot.on('message', message => {
     {
         case 'mute':
             bot.commands.get('mute').execute(message, args);
+            break;
         case 'unmute':
             bot.commands.get('unmute').execute(message, args);
+            break;
         case 'show':
             bot.commands.get('show').execute(message, args);
+            break;
+        case 'how':
+            bot.commands.get('how').execute(message, args);
     }
 
     
