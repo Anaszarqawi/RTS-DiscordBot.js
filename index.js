@@ -4,6 +4,18 @@ const bot = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
 const prefix = config.prefix;
 
+const fs = require('fs');
+
+bot.commands = new Discord.Collection();
+
+const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'))
+
+for (const file of commandFiles) {
+    const command = require(`./commands/${file}`)
+
+    bot.commands.set(command.name, command)
+}
+
 bot.on('ready', () => {
     console.log("This bot is online!");
     bot.user.setActivity("$help | rts");
@@ -14,27 +26,9 @@ bot.on('message', message => {
     let args = message.content.substring(prefix.length).split(" ")
     
     if (message.content === "rts") {
-        message.channel.sendTyping();
-        const exampleEmbed = new Discord.MessageEmbed()
-            .setColor('#f3f3f3')
-            .setTitle('RTS WORKSPACE')
-            .setURL('https://bit.ly/RTSworksapace')
-            .setDescription('Here you will find all the Summaries, Videos, Answers to Exams and any materials that will benefit you in the field of CS.')
-            .addFields(
-                { name: 'Assignments', value: 'https://bit.ly/RTS_Assignments' },
-                { name: 'Materials', value: 'https://bit.ly/RTS_Materials'},
-                { name: 'Exercises', value: 'https://bit.ly/RTS_Exercises'},
-                { name: 'Sessions', value: 'https://bit.ly/RTS_Sessions'},
-            )
-            .setImage('https://github.com/Anaszarqawi/anasBot.js/blob/main/assets/embed-banner.jpg?raw=true')
-            .setFooter("RTS TEAM")
-        message.channel.send({ embeds: [exampleEmbed] });
-        return
+        bot.commands.get('rts').execute(message, args)
     }
 
-    switch (args[0]) {
-        case "link":
-    }
 })
 
 // bot.login(process.env.TOKEN)
