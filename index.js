@@ -57,12 +57,20 @@ bot.on('message', message => {
             bot.commands.get('show').execute(message, args);
         
         case 'help':
-            bot.commands.get('help').execute(message, args);
+            bot.commands.get('help').execute(message);
             break;
 
         case 'clear':
             bot.commands.get('clear').execute(message, args);
             break;
+        
+        case 'about':
+            bot.commands.get('about').execute(message);
+            break;
+        
+        case 'repo':
+            bot.commands.get('repo').execute(message);
+            
 
     }
 
