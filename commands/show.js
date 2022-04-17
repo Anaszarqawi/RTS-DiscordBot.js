@@ -12,7 +12,7 @@ module.exports = {
             message.channel.send(`the number of people in this channel is ${usersNumber}`);
         }
         else {
-            message.reply("You don't exist in this channel or not don't have MOD Role")
+            message.reply("**You don't exist in this channel or you don't have MOD Role**")
         }
 
     }
