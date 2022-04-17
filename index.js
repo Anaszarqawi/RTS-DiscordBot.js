@@ -51,12 +51,12 @@ bot.on('message', message => {
         case 'show':
             bot.commands.get('show').execute(message, args);
             break;
-
+        case 'clear':
+            bot.commands.get('clear').execute(message, args);
     }
 
     
 
 })
 
-// bot.login(process.env.TOKEN)
 bot.login(config.DISCORD_TOKEN)
