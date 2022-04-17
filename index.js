@@ -39,6 +39,8 @@ bot.on('message', message => {
             bot.commands.get('unmute').execute(message, args);
         case 'show':
             bot.commands.get('show').execute(message, args);
+        case 'help':
+            bot.commands.get('help').execute(message, args);
     }
 
     
