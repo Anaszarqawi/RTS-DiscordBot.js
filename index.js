@@ -34,18 +34,33 @@ bot.on('message', message => {
     switch(args[0])
     {
         case 'mute':
-            bot.commands.get('mute').execute(message, args);
+            if (args[1] == undefined) {
+                bot.commands.get('muteAll').execute(message);
+            } else {
+                bot.commands.get('muteByArgs').execute(message, args);
+            }
+            break;
+        
         case 'unmute':
-            bot.commands.get('unmute').execute(message, args);
+            if (args[1] == undefined) {
+                bot.commands.get('unmuteAll').execute(message);
+            } else {
+                bot.commands.get('unmuteByArgs').execute(message, args);
+            }
+            break;
+        
         case 'show':
             bot.commands.get('show').execute(message, args);
+        
         case 'help':
             bot.commands.get('help').execute(message, args);
+            break;
+
+
     }
 
     
 
 })
 
-// bot.login(process.env.TOKEN)
 bot.login(config.DISCORD_TOKEN)
