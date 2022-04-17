@@ -26,3 +26,7 @@ Un-mute specific user in the voice channel
 
 ```$show```
 Returns the number of users in a voice channel
+
+```$clear <n>```
+Remove a number of messages
+
