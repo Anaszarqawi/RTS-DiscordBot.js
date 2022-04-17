@@ -55,12 +55,19 @@ bot.on('message', message => {
 
         case 'show':
             bot.commands.get('show').execute(message, args);
+        
+        case 'help':
+            bot.commands.get('help').execute(message, args);
             break;
+
+        case 'clear':
+            bot.commands.get('clear').execute(message, args);
+            break;
+
     }
 
     
 
 })
 
-// bot.login(process.env.TOKEN)
 bot.login(config.DISCORD_TOKEN)

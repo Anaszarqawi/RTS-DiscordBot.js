@@ -10,13 +10,23 @@ Send link of RTS Workspace
 Mute all users in the voice channel
 
 ```$mute @Role```
-Mute all users with a specific role in the voice channel
+Mute specific role in the voice channel
+
+```$mute @user-id```
+Mute specific user in the voice channel
 
 ```$unmute```
 Un-mute all users in the voice channel
 
 ```$unmute @Role```
-Un-mute all users with a specific role in the voice channel
+Un-mute specific role in the voice channel
+
+```$Unmute @user-id```
+Un-mute specific user in the voice channel
 
 ```$show```
 Returns the number of users in a voice channel
+
+```$clear <n>```
+Remove a number of messages
+
