@@ -5,6 +5,8 @@ const bot = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 const prefix = config.prefix;
 
 const fs = require('fs');
+// to get all members
+const memberCounter = require('./counter/member-counter')
 
 bot.commands = new Discord.Collection();
 
@@ -19,6 +21,7 @@ for (const file of commandFiles) {
 bot.on('ready', () => {
     console.log("This bot is online!");
     bot.user.setActivity("$help | rts");
+    memberCounter(bot);
 })
 
 bot.on('message', message => {
@@ -33,33 +36,33 @@ bot.on('message', message => {
 
     switch(args[0])
     {
-        case 'mute':
+        
+        case 'mute' :
             if (args[1] == undefined) {
                 bot.commands.get('muteAll').execute(message);
             } else {
                 bot.commands.get('muteByArgs').execute(message, args);
             }
             break;
-        
         case 'unmute':
+
             if (args[1] == undefined) {
                 bot.commands.get('unmuteAll').execute(message);
             } else {
                 bot.commands.get('unmuteByArgs').execute(message, args);
             }
             break;
-        
+
         case 'show':
             bot.commands.get('show').execute(message, args);
         
         case 'help':
             bot.commands.get('help').execute(message, args);
             break;
-        
+
         case 'clear':
             bot.commands.get('clear').execute(message, args);
-
-
+            break;
 
     }
 
