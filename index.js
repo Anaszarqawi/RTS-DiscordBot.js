@@ -63,14 +63,14 @@ bot.on('message', message => {
         case 'clear':
             bot.commands.get('clear').execute(message, args);
             break;
-        
-        case 'about':
-            bot.commands.get('about').execute(message);
+
+        case 'how':
+            bot.commands.get('how').execute(message);
             break;
-        
-        case 'repo':
-            bot.commands.get('repo').execute(message);
             
+        case 'translate':
+            bot.commands.get('translate').execute(message, args);
+            break;
 
     }
 
