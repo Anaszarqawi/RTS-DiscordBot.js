@@ -20,66 +20,82 @@ for (const file of commandFiles) {
 
 bot.on('ready', () => {
     console.log("This bot is online!");
-    bot.user.setActivity("$help | rts");
+    bot.user.setActivity("$help | rts", { type: 'LISTENING' });
     memberCounter(bot);
 })
 
-bot.on('message', message => {
+try {
+    bot.on('message', message => {
 
-    let args = message.content.substring(prefix.length).split(" ")
-    // without prefix
-    if (message.content === "rts") {
-        bot.commands.get('rts').execute(message, args)
-    }
+        let args = message.content.substring(prefix.length).split(" ")
+        // without prefix
+        if (message.content === "rts") {
+            bot.commands.get('rts').execute(message, args)
+        }
 
-    //with prefix
+        //with prefix
+        switch (args[0]) {
+            case 'mute':
+                if (args[1] == undefined) {
+                    bot.commands.get('muteAll').execute(message);
+                } else {
+                    bot.commands.get('muteByArgs').execute(message, args);
+                }
+                break;
+            case 'unmute':
 
-    switch(args[0])
-    {
+                if (args[1] == undefined) {
+                    bot.commands.get('unmuteAll').execute(message);
+                } else {
+                    bot.commands.get('unmuteByArgs').execute(message, args);
+                }
+                break;
+
+            case 'show':
+                bot.commands.get('show').execute(message, args);
+                break;
         
-        case 'mute' :
-            if (args[1] == undefined) {
-                bot.commands.get('muteAll').execute(message);
-            } else {
-                bot.commands.get('muteByArgs').execute(message, args);
-            }
-            break;
-        case 'unmute':
+            case 'help':
+                bot.commands.get('help').execute(message);
+                break;
 
-            if (args[1] == undefined) {
-                bot.commands.get('unmuteAll').execute(message);
-            } else {
-                bot.commands.get('unmuteByArgs').execute(message, args);
-            }
-            break;
+            case 'clear':
+                bot.commands.get('clear').execute(message, args);
+                break;
 
-        case 'show':
-            bot.commands.get('show').execute(message, args);
+            case 'how':
+                bot.commands.get('how').execute(message);
+                break;
         
-        case 'help':
-            bot.commands.get('help').execute(message);
-            break;
+            case 'about':
+                bot.commands.get('about').execute(message);
+                break;
 
-        case 'clear':
-            bot.commands.get('clear').execute(message, args);
-            break;
-
-        case 'how':
-            bot.commands.get('how').execute(message);
-            break;
+            case 'repo':
+                bot.commands.get('repo').execute(message);
+                break;
         
-        case 'about':
-            bot.commands.get('about').execute(message);
-            break;
-
-        case 'repo':
-            bot.commands.get('repo').execute(message);
-            break;
+            case 'translate':
+                bot.commands.get('translate').execute(message, args);
+                break;
         
-        case 'translate':
-            bot.commands.get('translate').execute(message, args);
-            break;
-    }
-})
+            case 'role+':
+                bot.commands.get('addRole').execute(message, args);
+                break;
+        
+            case 'role-':
+                bot.commands.get('removeRole').execute(message, args);
+                break;
+        
+            case 'sendmsg':
+                bot.commands.get('sendMsg').execute(message, args);
+                break;
+        
+
+        }
+    })
+} catch (message) {
+    message.reply("ERROR")
+}
 
 bot.login(config.DISCORD_TOKEN)
