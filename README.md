@@ -1,6 +1,6 @@
 # RTS-Bot
 | Commands                     |                   Description                   |     Role |
-| ---------------------------- | :---------------------------------------------: | -------: |
+| ---------------------------- | :---------------------------------------------- | :------- |
 | `rts`                        |           Send link of RTS Workspace            | Everyone |
 | `$help`                      |                Show all commands                | Everyone |
 | `$mute`                      |       Mute all users in the voice channel       |     MODs |
