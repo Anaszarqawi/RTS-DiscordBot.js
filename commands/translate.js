@@ -17,19 +17,16 @@ module.exports = {
         else {
             // to delete the $translate
             args.shift();
-            // to get the paramater with out <>
+            // to get the parameter with out <>
             let toParm = args.pop().slice(1, -1);
-            // to get the senctence
-            let senctence = args.join(' ');
+            // to get the sentence
+            let sentence = args.join(' ');
 
             // to get the translation api to work
-            translate(senctence, {to: toParm}).then(res => {
-                message.channel.sendTyping();
-                message.reply(`from ${langs[res.from.language.iso]}\nto ${langs[toParm]}`);
-                message.channel.sendTyping();
-                message.reply(`the translated text : ${res.text}`);
 
-                console.log(res.from.language.iso);
+            translate(sentence, {to: toParm}).then(res => {
+                message.channel.sendTyping();
+                message.reply(`${langs[res.from.language.iso]} => ${langs[toParm]}\nThe translated text : ${res.text}`);
                 //=> nl
             }).catch(err => {
                 message.reply(`error in : ${err}`);
