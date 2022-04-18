@@ -23,6 +23,7 @@ module.exports = {
             let sentence = args.join(' ');
 
             // to get the translation api to work
+
             translate(sentence, {to: toParm}).then(res => {
                 message.channel.sendTyping();
                 message.reply(`${langs[res.from.language.iso]} => ${langs[toParm]}\nThe translated text : ${res.text}`);
