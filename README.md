@@ -1,32 +1,19 @@
 # RTS-Bot
-### Commands
-```$help```
-Show all commands
+| Commands                     |                   Description                   |     Role |
+| ---------------------------- | :---------------------------------------------: | -------: |
+| `rts`                        |           Send link of RTS Workspace            | Everyone |
+| `$help`                      |                Show all commands                | Everyone |
+| `$mute`                      |       Mute all users in the voice channel       |     MODs |
+| `$mute @role`                |     Mute specific role in the voice channel     |     MODs |
+| `$mute @user-id`             |     Mute specific user in the voice channel     |     MODs |
+| `$unmute`                    |     Un-mute all users in the voice channel      |     MODs |
+| `$unmute @role`              |   Un-Mute specific role in the voice channel    |     MODs |
+| `$unmute @user-id`           |   Un-Mute specific user in the voice channel    |     MODs |
+| `$show`                      | Returns the number of users in a voice channel  |     MODs |
+| `$clear [x]`                 |           Remove x number of messages           |     MODs |
+| `$trans [sentence] [toLang]` | Translate any sentence to and from any language | Everyone |
+| `$about`                     |               About RTS WORKSPACE               | Everyone |
+| `$repo`                      |       Send bot Repository link on github        | Everyone |
 
-```rts```
-Send link of RTS Workspace
 
-```$mute```
-Mute all users in the voice channel
-
-```$mute @Role```
-Mute specific role in the voice channel
-
-```$mute @user-id```
-Mute specific user in the voice channel
-
-```$unmute```
-Un-mute all users in the voice channel
-
-```$unmute @Role```
-Un-mute specific role in the voice channel
-
-```$Unmute @user-id```
-Un-mute specific user in the voice channel
-
-```$show```
-Returns the number of users in a voice channel
-
-```$clear <n>```
-Remove a number of messages
 
