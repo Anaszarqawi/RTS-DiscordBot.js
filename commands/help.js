@@ -19,7 +19,8 @@ module.exports = {
                 { name: '$unmute @role', value: 'Unmute specific role in the voice channel (MODs Command)' },
                 { name: '$unmute @user-id', value: 'Unmute specific user in the voice channel (MODs Command)' },
                 { name: '$show', value: 'Returns the amount of users in a voice channel (MODs Command)' },
-                { name: '$clear x', value: 'Remove x number of messages (MODs Command)' },
+                { name: '$clear [x]', value: 'Remove x number of messages (MODs Command)' },
+                { name: '$trans [sentence] [toLang]', value: 'Translate any sentence to and from any language' },
                 { name: '$about', value: 'About RTS WORKSPACE' },
                 { name: '$repo', value: 'Send bot Repository link on github' }
                 

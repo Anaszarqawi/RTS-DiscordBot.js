@@ -67,15 +67,19 @@ bot.on('message', message => {
         case 'how':
             bot.commands.get('how').execute(message);
             break;
-            
+        
+        case 'about':
+            bot.commands.get('about').execute(message);
+            break;
+
+        case 'repo':
+            bot.commands.get('repo').execute(message);
+            break;
+        
         case 'translate':
             bot.commands.get('translate').execute(message, args);
             break;
-
     }
-
-    
-
 })
 
 bot.login(config.DISCORD_TOKEN)
