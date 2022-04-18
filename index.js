@@ -63,9 +63,13 @@ bot.on('message', message => {
         case 'clear':
             bot.commands.get('clear').execute(message, args);
             break;
-            
+
         case 'how':
             bot.commands.get('how').execute(message);
+            break;
+            
+        case 'translate':
+            bot.commands.get('translate').execute(message, args);
             break;
 
     }
