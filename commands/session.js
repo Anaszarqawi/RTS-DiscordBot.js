@@ -6,7 +6,7 @@ module.exports = {
     description: 'use to get the voice channel and join session',
     async execute(message) {
 
-        let channelID = '965746491551518814';
+        let channelID = '916013214028947486';
         
         if (channelID) {
             const sessionEmbed = new Discord.MessageEmbed()
