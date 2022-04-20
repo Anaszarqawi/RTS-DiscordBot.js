@@ -13,8 +13,8 @@ module.exports = {
                 manageChEmbed.setDescription("🚫 You don't have permission to use this command!")
             message.reply({ embeds: [manageChEmbed] });
         }
-        const channelName = args[1];
-        const channelTarget = message.guild.channels.cache.find(channel => channel.name === channelName)
+        const channelID = args[1].replace(/\D/g, '');
+        const channelTarget = message.guild.channels.cache.get(channelID);
         const messageContent = message.content.split(' ');
         manageChEmbed.setDescription(`${messageContent.slice(2).join(" ")}`);
         channelTarget.send({ embeds: [manageChEmbed] });

@@ -24,7 +24,7 @@ module.exports = {
                 { name: '$about', value: 'About RTS WORKSPACE' },
                 { name: '$repo', value: 'Send bot Repository link on github' },
                 { name: '$session', value: 'Mentions the voice channel for the session' },
-                { name: '$sendmsg <channel name> message', value: 'Sends message to specific channel by name (MODs Command)' },
+                { name: '$sendmsg #channel-name message', value: 'Sends message to specific channel by name (MODs Command)' },
                 
             )
             .setFooter('RTS TEAM')
