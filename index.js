@@ -87,8 +87,8 @@ try {
                 bot.commands.get('removeRole').execute(message, args);
                 break;
         
-            case 'sendmsg':
-                bot.commands.get('sendMsg').execute(message, args);
+            case 'echo':
+                bot.commands.get('echo').execute(message, args);
                 break;
         
             case 'session':
