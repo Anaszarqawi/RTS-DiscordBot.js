@@ -6,7 +6,7 @@ const prefix = config.prefix;
 
 const fs = require('fs');
 // to get all members
-const memberCounter = require('./counter/member-counter')
+//const memberCounter = require('./counter/member-counter')
 
 bot.commands = new Discord.Collection();
 
@@ -18,10 +18,20 @@ for (const file of commandFiles) {
     bot.commands.set(command.name, command)
 }
 
+bot.slashCommands = new Discord.Collection();
+
+const slashCommandFiles = fs.readdirSync('./slashCommands/').filter(file => file.endsWith('.js'));
+
+for (const file of slashCommandFiles) {
+    const slashCommand = require(`./slashCommands/${file}`);
+    
+    bot.slashCommands.set(command.name, command);
+}
+
 bot.on('ready', () => {
-    console.log("This bot is online!");
+    console.log(`${bot.user.tag} is up and running`);
     bot.user.setActivity("$help | rts", { type: 'LISTENING' });
-    memberCounter(bot);
+    //memberCounter(bot);
 })
 
 try {
