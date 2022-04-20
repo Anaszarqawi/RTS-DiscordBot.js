@@ -4,7 +4,7 @@ const config = require('../config.json');
 
 module.exports = {
     name: 'sendMsg',
-    description: 'send message to specific channel by id',
+    description: 'send message to specific channel by name',
     async execute(message,args) {
         const manageChannels = message.member.permissions.has(Discord.Permissions.FLAGS.MANAGE_CHANNELS,Discord.Permissions.FLAGS.MANAGE_MESSAGES,Discord.Permissions.FLAGS.SEND_MESSAGES,Discord.Permissions.FLAGS.VIEW_CHANNEL);
         const manageChEmbed = new Discord.MessageEmbed()
