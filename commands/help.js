@@ -22,7 +22,9 @@ module.exports = {
                 { name: '$clear [x]', value: 'Remove x number of messages (MODs Command)' },
                 { name: '$trans [sentence] [toLang]', value: 'Translate any sentence to and from any language' },
                 { name: '$about', value: 'About RTS WORKSPACE' },
-                { name: '$repo', value: 'Send bot Repository link on github' }
+                { name: '$repo', value: 'Send bot Repository link on github' },
+                { name: '$session', value: 'Mentions the voice channel for the session' },
+                { name: '$sendmsg #channel-name message', value: 'Sends message to specific channel by name (MODs Command)' },
                 
             )
             .setFooter('RTS TEAM')

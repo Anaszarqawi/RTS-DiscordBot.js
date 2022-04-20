@@ -91,7 +91,14 @@ try {
                 bot.commands.get('sendMsg').execute(message, args);
                 break;
         
-
+            case 'session':
+                if (args[1] === undefined && args[2] === undefined)
+                    bot.commands.get('session').execute(message);
+                else if (args[2] === undefined || args[1] === undefined)
+                    message.reply('Please, use the command like this!\n$session #textChannel #!voiceChannel')
+                else
+                    bot.commands.get('sessionLive').execute(message, args);
+                break;
         }
     })
 } catch (message) {
