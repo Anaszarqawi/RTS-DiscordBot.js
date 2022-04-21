@@ -11,7 +11,7 @@ module.exports = {
         if (channelID) {
             const sessionEmbed = new Discord.MessageEmbed()
                 .setColor(config.COLOR_EMBED)
-                .setDescription('Join the session now!\n👇\n<#' + channelID + '>')
+                .setDescription('Join the session now!\n<#' + channelID + '>')
             message.channel.send({ embeds: [sessionEmbed] });
         }
         
