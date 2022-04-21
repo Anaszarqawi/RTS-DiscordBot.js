@@ -1,4 +1,6 @@
 const Discord = require('discord.js');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
 const config = require('./config.json');
 const bot = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] })
 
@@ -18,10 +20,62 @@ for (const file of commandFiles) {
     bot.commands.set(command.name, command)
 }
 
+const slashCommands = [];
+
+bot.slashCommands = new Discord.Collection();
+
+const slashCommandFiles = fs.readdirSync('./slashCommands/').filter(file => file.endsWith('.js'));
+
+for (const file of slashCommandFiles) {
+    const slashCommand = require(`./slashCommands/${file}`);
+    slashCommands.push(slashCommand.data.toJSON());
+    bot.slashCommands.set(slashCommand.data.name, slashCommand);
+}
+
 bot.on('ready', () => {
-    console.log("This bot is online!");
+    console.log(`${bot.user.tag} is up and running`);
     bot.user.setActivity("$help | rts", { type: 'LISTENING' });
     memberCounter(bot);
+
+    const BOT_ID = bot.user.id;
+    //for development use only
+    const GUILD_ID = '965746491069190155';
+    
+    const rest = new REST({
+        version: '9',
+    }).setToken(config.DISCORD_TOKEN);
+    
+    (async () => {
+        try {
+            if (config.ENV === 'production')
+                await rest.put(
+                    Routes.applicationGuildCommands(BOT_ID),
+                    {
+                        body: slashCommands
+                    },
+                );
+            else {
+                await rest.put(
+                    Routes.applicationGuildCommands(BOT_ID, GUILD_ID),
+                    {
+                        body: slashCommands
+                    },
+
+                );
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    })();
+})
+
+bot.on('interactionCreate', interaction => {
+    if (!interaction.isCommand()) return;
+    let args = interaction.commandName;
+    switch (args) {
+        case 'session':
+            bot.slashCommands.get('session').execute(interaction);
+    }
 })
 
 try {
@@ -87,8 +141,8 @@ try {
                 bot.commands.get('removeRole').execute(message, args);
                 break;
         
-            case 'sendmsg':
-                bot.commands.get('sendMsg').execute(message, args);
+            case 'echo':
+                bot.commands.get('echo').execute(message, args);
                 break;
         
             case 'session':
