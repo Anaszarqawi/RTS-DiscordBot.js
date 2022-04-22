@@ -75,6 +75,13 @@ bot.on('interactionCreate', interaction => {
     switch (args) {
         case 'session':
             bot.slashCommands.get('session').execute(interaction);
+            break;
+        case 'repo':
+            bot.slashCommands.get('repo').execute(interaction);
+            break;
+        case 'echo':
+            bot.slashCommands.get('echo').execute(interaction);
+            break;
     }
 })
 
