@@ -8,7 +8,7 @@ const prefix = config.prefix;
 
 const fs = require('fs');
 // to get all members
-// const memberCounter = require('./counter/member-counter')
+const memberCounter = require('./counter/member-counter')
 
 bot.commands = new Discord.Collection();
 
@@ -35,7 +35,7 @@ for (const file of slashCommandFiles) {
 bot.on('ready', () => {
     console.log(`${bot.user.tag} is up and running`);
     bot.user.setActivity("$help | rts", { type: 'LISTENING' });
-    // memberCounter(bot);
+    memberCounter(bot);
 
     const BOT_ID = bot.user.id;
     //for development use only
@@ -81,9 +81,6 @@ bot.on('interactionCreate', interaction => {
             break;
         case 'echo':
             bot.slashCommands.get('echo').execute(interaction);
-            break;
-        case 'help':
-            bot.slashCommands.get('help').execute(interaction);
             break;
     }
 })
