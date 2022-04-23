@@ -83,6 +83,12 @@ bot.on('interactionCreate', interaction => {
         case 'unmute':
             bot.slashCommands.get('unmute').execute(interaction)
             break;
+        case 'repo':
+            bot.slashCommands.get('repo').execute(interaction);
+            break;
+        case 'echo':
+            bot.slashCommands.get('echo').execute(interaction);
+            break;
     }
 })
 
