@@ -6,11 +6,13 @@ const permFlags = require('../constants/permFlags.json')
  * @param {Discord.Client} bot 
  * @param {Discord.Interaction} interaction
  */
+
 const run = async (bot, interaction) => {
     try {
         let mentionTarget = interaction.options.getMember('user');
         let requiredRole = interaction.options.getRole('role');
-        await mentionTarget.roles.add(requiredRole.id)
+
+        await mentionTarget.roles.remove(requiredRole.id)
         
         interaction.reply({ content: 'done', ephemeral: true}); 
         console.log('done');
@@ -23,13 +25,13 @@ const run = async (bot, interaction) => {
 }
 
 module.exports = {
-    name: "addrole",
-    description: "gives a role for a user",
+    name: "removerole",
+    description: "removes a role for a user",
     perm: permFlags['flags'].canModerate,
     options: [
         {
             name: "role",
-            description: "the required role to give to the user",
+            description: "the required role to remove from the user",
             type: "ROLE",
             required: true,
         },
