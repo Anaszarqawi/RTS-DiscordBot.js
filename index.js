@@ -39,7 +39,7 @@ bot.on('ready', () => {
 
     const BOT_ID = bot.user.id;
     //for development use only
-    const GUILD_ID = '965746491069190155';
+    const GUILD_ID = '881560236446601216';
     
     const rest = new REST({
         version: '9',
@@ -72,9 +72,16 @@ bot.on('ready', () => {
 bot.on('interactionCreate', interaction => {
     if (!interaction.isCommand()) return;
     let args = interaction.commandName;
+
     switch (args) {
         case 'session':
             bot.slashCommands.get('session').execute(interaction);
+            break;
+        case 'mute':
+            bot.slashCommands.get('mute').execute(interaction)
+            break;
+        case 'unmute':
+            bot.slashCommands.get('unmute').execute(interaction)
             break;
         case 'repo':
             bot.slashCommands.get('repo').execute(interaction);
