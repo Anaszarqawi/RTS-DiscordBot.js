@@ -71,7 +71,9 @@ bot.on('ready', () => {
 
 bot.on('interactionCreate', interaction => {
     if (!interaction.isCommand()) return;
+    
     let args = interaction.commandName;
+    
     switch (args) {
         case 'session':
             bot.slashCommands.get('session').execute(interaction);
@@ -82,6 +84,11 @@ bot.on('interactionCreate', interaction => {
         case 'echo':
             bot.slashCommands.get('echo').execute(interaction);
             break;
+        case 'clear':
+            bot.slashCommands.get('clear').execute(interaction);
+            break;
+        case 'rts':
+            bot.slashCommands.get('rts').execute(interaction);
     }
 })
 
