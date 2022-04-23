@@ -1,0 +1,24 @@
+{
+    "flags" : {
+        "adminstrator" : "ADMINISTRATOR",
+        "manageServer" : "MANAGE_GUILD",
+        "manageChannels" : "MANAGE_CHANNELS",
+        "createInvites" : "CREATE_INSTANT_INVITE",
+        "canKick" : "KICK_MEMBERS",
+        "canBan" : "BAN_MEMBERS",
+        "canDeafen" : "DEAFEN_MEMBERS",
+        "canSpeak" : "SPEAK",
+        "canConnect" : "CONNECT",
+        "canReact" : "ADD_REACTIONS",
+        "viewLogs" : "VIEW_AUDIT_LOG",
+        "prioritySpeaker" : "PRIORITY_SPEAKER",
+        "canStream" : "STREAM",
+        "viewChannel" : "VIEW_CHANNEL",
+        "canSendMessages" : "SEND_MESSAGES", 
+        "canManageMessages" : "MANAGE_MESSAGES",
+        "canUploadFiles" : "ATTACH_FILES",
+        "canMuteMembers" : "MUTE_MEMBERS",
+        "canMoveMembers" : "MOVE_MEMBERS",
+        "canModerate" : "MODERATE_MEMBERS"
+    }
+}

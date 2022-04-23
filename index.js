@@ -39,7 +39,7 @@ bot.on('ready', () => {
 
     const BOT_ID = bot.user.id;
     //for development use only
-    const GUILD_ID = '965746491069190155';
+    const GUILD_ID = '928705518074220585';
     
     const rest = new REST({
         version: '9',
@@ -82,7 +82,15 @@ bot.on('interactionCreate', interaction => {
         case 'echo':
             bot.slashCommands.get('echo').execute(interaction);
             break;
+        case 'translate':
+            bot.slashCommands.get('translate').execute(interaction);
+            break;
+        case 'addrole':
+            bot.slashCommands.get('addrole').execute(interaction);
+            break;
+        
     }
+
 })
 
 try {
