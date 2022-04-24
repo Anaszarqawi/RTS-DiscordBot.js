@@ -1,5 +1,6 @@
 const Discord = require("discord.js")
 const config = require('./config.json');
+const loadCommands = require('./handlers/loadslash');
 const bot = new Discord.Client({
     intents: ["GUILDS", "GUILD_MESSAGES"]
 })
@@ -8,6 +9,7 @@ const bot = new Discord.Client({
 bot.on("ready", () => {
     console.log(`${bot.user.tag} is up and running`);
     bot.user.setActivity("$help | rts", { type: 'LISTENING' });
+    loadCommands.run(bot)
 })
 
 bot.slashcommands = new Discord.Collection() 
@@ -27,7 +29,6 @@ bot.on("interactionCreate", (interaction) => {
             content: "**You do not have permission for this command!**",
             ephemeral:true
         })
-
     slashCmd.run(bot, interaction)
 })
 
