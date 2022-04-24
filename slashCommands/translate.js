@@ -1,7 +1,4 @@
-const Discord = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const translate = require('@vitalets/google-translate-api'); // for translating google api
-const config = require('../config.json');
 const langs = require('../constants/langParm.json');
 
 

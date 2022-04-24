@@ -1,5 +1,5 @@
+/* eslint-disable no-unused-vars */
 const Discord = require('discord.js');
-const { SlashCommandBuilder } = require('@discordjs/builders');
 const permFlags = require('../constants/permFlags.json')
 /**
  *  
@@ -8,6 +8,7 @@ const permFlags = require('../constants/permFlags.json')
  */
 const run = async (bot, interaction) => {
     try {
+        
         let mentionTarget = interaction.options.getMember('user');
         let requiredRole = interaction.options.getRole('role');
         await mentionTarget.roles.add(requiredRole.id)

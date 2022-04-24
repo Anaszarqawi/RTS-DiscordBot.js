@@ -1,7 +1,5 @@
 const Discord = require('discord.js');
 const config = require('../config.json');
-const { SlashCommandBuilder } = require('@discordjs/builders');
-
 
 const run = async (bot, interaction) => {
     const rtsEmbed = new Discord.MessageEmbed()
