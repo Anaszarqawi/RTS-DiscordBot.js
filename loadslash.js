@@ -4,7 +4,8 @@ const bot = new Discord.Client({
     intents: ["GUILDS", "GUILD_MESSAGES"]
 })
 
-const guildId = config.guildId;
+
+const guildId = config.GUILD_ID
 
 bot.slashcommands = new Discord.Collection() 
 
