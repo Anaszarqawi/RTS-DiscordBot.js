@@ -17,14 +17,14 @@ bot.loadSlashCommands(bot, false)
 
 bot.on("interactionCreate", (interaction) => {
     if (!interaction.isCommand()) return 
-    if (!interaction.inGuild()) return interaction.reply("This command can only be used in a server")
+    if (!interaction.inGuild()) return interaction.reply("**This command can only be used in a server**")
     const slashCmd = bot.slashcommands.get(interaction.commandName)
 
     if (!slashCmd) return interaction.reply("Invalid slash command")
 
     if (slashCmd.perm && !interaction.member.permissions.has(slashCmd.perm))
         return interaction.reply({
-            content: "You do not have permission for this command",
+            content: "**You do not have permission for this command!**",
             ephemeral:true
         })
 
