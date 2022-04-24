@@ -1,37 +1,46 @@
-const Discord = require('discord.js');
+/* eslint-disable no-unused-vars */
 const translate = require('@vitalets/google-translate-api'); // for translating google api
 const langs = require('../constants/langParm.json');
 
-/* 
-$translate translate-text <to-lang>
-*/
+
+const run = async (bot, interaction) => {
+    let sentence = interaction.options.getString('sentence');
+    let prefix = interaction.options.getString('prefix');
+
+    
+    await translate(sentence, {to: prefix}).then(res => {
+        interaction.channel.sendTyping();
+        interaction.reply({
+            content : `${langs[res.from.language.iso]} => ${langs[prefix]}\nThe translated text : ${res.text}`,
+            ephemeral: true,
+        });
+    }).catch(err => {
+        interaction.reply({
+            content : `error in ${err}`,
+            ephemeral: true,
+        });
+    });
+
+}
+
 
 module.exports = {
-    name : 'translate',
-    description: "this command translate user's text",
-
-    execute(message, args) {
-        if(args[1] == undefined) {
-            message.reply("Enter a word!");
+    name: "translate",
+    description: "translates a sentence",
+    perm: "",
+    options: [
+        {
+            name: "sentence",
+            description: "the sentence to be translated",
+            type: "STRING",
+            required: true,
+        },
+        {
+            name: "prefix",
+            description: "the prefix of a langauge that you want to translate to",
+            type: "STRING",
+            required: true,
         }
-        else {
-            // to delete the $translate
-            args.shift();
-            // to get the parameter with out <>
-            let toParm = args.pop().slice(1, -1);
-            // to get the sentence
-            let sentence = args.join(' ');
-
-            // to get the translation api to work
-
-            translate(sentence, {to: toParm}).then(res => {
-                message.channel.sendTyping();
-                message.reply(`${langs[res.from.language.iso]} => ${langs[toParm]}\nThe translated text : ${res.text}`);
-                //=> nl
-            }).catch(err => {
-                message.reply(`error in : ${err}`);
-            });
-        }
-        
-    }
+    ],
+    run
 }
