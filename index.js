@@ -29,6 +29,7 @@ bot.on("interactionCreate", (interaction) => {
             content: "**You do not have permission for this command!**",
             ephemeral:true
         })
+
     slashCmd.run(bot, interaction)
 })
 
