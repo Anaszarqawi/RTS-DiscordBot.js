@@ -10,7 +10,7 @@ const run = async(bot,interaction) => {
          
         googleIt({'limit': 20, 'query': message }).then(results => {
             results.forEach((item,index) => {
-                searchEmbed.addField((index + 1) + ': ' + item.title, item.link);
+                searchEmbed.addField((index + 1) + '. ', item.link);
             });
             interaction.reply({
                 embeds: [searchEmbed],
