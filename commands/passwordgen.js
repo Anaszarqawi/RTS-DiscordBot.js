@@ -3,6 +3,13 @@ const config = require('../config.json');
 const permFlags = require('../constants/permFlags.json');
 
 const run = async (bot, interaction) => {
+    const wantPass = interaction.options.getBoolean('passwordgen');
+
+    if (wantPass == false) return interaction.reply({
+        content: 'Ok!',
+        ephemeral: true,
+    });
+
     let pass = '';
     
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%^&*!+-';
