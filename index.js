@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const config = require('./config.json');
 const bot = new Discord.Client({
-    intents: ["GUILDS", "GUILD_MESSAGES"]
+    intents: ["GUILDS", "GUILD_MESSAGES", "GUILD_MEMBERS"]
 })
 
 
