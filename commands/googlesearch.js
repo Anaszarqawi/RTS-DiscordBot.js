@@ -1,7 +1,6 @@
 const Discord = require('discord.js');
 const config = require('../config.json');
 const googleIt = require('google-it');
-const permFlags = require('../constants/permFlags.json');
 
 
 const run = async(bot,interaction) => {
@@ -32,7 +31,7 @@ const run = async(bot,interaction) => {
 module.exports = {
     name: 'googlesearch',
     description: 'searches google for the given text',
-    perm: permFlags['flags'].canModerate,
+    perm: "",
     options: [
         {
             name: 'message',
