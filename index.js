@@ -7,7 +7,7 @@ const bot = new Discord.Client({
 
 bot.on("ready", () => {
     console.log(`${bot.user.tag} is up and running`);
-    bot.user.setActivity("$help | rts", { type: 'LISTENING' });
+    bot.user.setActivity("/rts", { type: 'LISTENING' });
 })
 
 bot.slashcommands = new Discord.Collection() 
