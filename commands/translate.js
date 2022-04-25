@@ -11,7 +11,7 @@ const run = async (bot, interaction) => {
     await translate(sentence, {to: prefix}).then(res => {
         interaction.channel.sendTyping();
         interaction.reply({
-            content : `${langs[res.from.language.iso]} => ${langs[prefix]}\nThe translated text : ${res.text}`,
+            content : `${sentence}\n\`${langs[res.from.language.iso]} => ${langs[prefix]}\`\n${res.text}`,
             ephemeral: true,
         });
     }).catch(err => {
