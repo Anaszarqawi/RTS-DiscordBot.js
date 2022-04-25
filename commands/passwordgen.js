@@ -3,9 +3,9 @@ const config = require('../config.json');
 const permFlags = require('../constants/permFlags.json');
 
 const run = async (bot, interaction) => {
-    const wantPass = interaction.options.getBoolean('passwordgen');
+    const wantPass = interaction.options.getBoolean('choice');
 
-    if (wantPass == false) return interaction.reply({
+    if (!wantPass) return interaction.reply({
         content: 'Ok!',
         ephemeral: true,
     });
