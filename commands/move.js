@@ -26,9 +26,7 @@ const run = async (bot, interaction) => {
             if (member.roles.cache.has(targetRole.id)) {
                 member.voice.setChannel(targetChannel)
                 usersNumber++;
-                console.log("1");
             }
-            console.log("2");
         });
         sendEmbed(usersNumber)
     }

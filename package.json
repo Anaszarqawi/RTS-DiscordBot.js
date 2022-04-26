@@ -1,5 +1,5 @@
 {
-  "name": "anasbot",
+  "name": "RTS BOT",
   "version": "1.0.0",
   "description": "Discord bot for manage sessions and meetings",
   "main": "index.js",
@@ -19,6 +19,7 @@
     "eslint": "^8.14.0",
     "node-fetch": "^3.2.3",
     "request": "^2.88.2",
+    "google-it": "^1.6.2",
     "request-promise": "^4.2.6"
   }
 }
