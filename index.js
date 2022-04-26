@@ -12,6 +12,23 @@ bot.on("ready", () => {
     loadCommands.run(bot);
 })
 
+let WelcomeChannelId = config.WelcomeChannelId;
+
+bot.on("guildMemberAdd", async (member) => {
+    const welcomeEmbed = new Discord.MessageEmbed()
+        .setColor(config.COLOR_EMBED)
+        .setAuthor({ name: `${member.user.username}#${member.user.discriminator}`, iconURL: `https://cdn.discordapp.com/avatars/${member.user.id}/${member.user.avatar}.png` })
+        .setTitle(`WELCOME TO RTS SERVER :tada:`)
+        .setFooter("RTS TEAM")
+        console.log(member);
+    
+    member.guild.channels.cache.get(WelcomeChannelId).send({
+        embeds: [welcomeEmbed]
+    })
+
+    await member.roles.add(config.AUTO_ROLE)
+})
+
 bot.slashcommands = new Discord.Collection() 
 
 bot.loadSlashCommands = (bot, reload) => require("./handlers/slashcommands")(bot, reload)

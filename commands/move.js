@@ -9,7 +9,7 @@ const run = async (bot, interaction) => {
     const sendEmbed = async (usersNumber) => {
         const Embed = new Discord.MessageEmbed()
             .setColor(config.COLOR_EMBED)
-            .setDescription(`**Muted ${usersNumber} member(s)**`)
+            .setDescription(`**Moved ${usersNumber} member(s)**`)
         await interaction.reply({
             embeds: [Embed],
             ephemeral: true
