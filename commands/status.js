@@ -26,7 +26,7 @@ const run = async (bot, interaction) => {
     const embed = new Discord.MessageEmbed()
             .setTitle('SERVER STATS :')
             .setColor(config.COLOR_EMBED)
-            .setDescription(`Total Members : ${memberCount}\nMembers : ${humans}\nBots : ${bots}`)
+            .setDescription(`**:busts_in_silhouette: Members : ${humans}**\n**:robot: Bots : ${bots}**`)
 
 
     interaction.reply({
